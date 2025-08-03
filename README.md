@@ -91,20 +91,4 @@ If deploying to Vercel:
 - Add your `.env.local` to the dashboard
 - Ensure large binaries/models are excluded from Git or uploaded to a CDN
 
----
 
-## 📄 License
-
-MIT License. See `LICENSE` for details.
-
----
-
-## 🤝 Contributing
-
-Pull requests are welcome! For major changes, please open an issue first.
-
----
-
-## 📬 Contact
-
-For help, questions, or suggestions, open an [issue](https://github.com/your-username/whisper-tts-assistant/issues).
