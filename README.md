@@ -1,36 +1,110 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Whisper TTS Assistant
 
-## Getting Started
+A Next.js-based voice assistant that uses OpenAI's Whisper for speech recognition and text-to-speech (TTS) technologies. This project allows you to transcribe, respond, and interact with voice using local or web-based models.
 
-First, run the development server:
+---
+
+## 🧠 Features
+
+- 🎙️ **Speech-to-Text** using Whisper
+- 🔊 **Text-to-Speech** model integration
+- 🌐 Web-based UI with Next.js
+- ⚙️ Local and embedded models (`whisper.cpp`, `tts-model`)
+- 📦 Service worker for offline support
+- ☁️ MongoDB integration for storing conversations
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (v18 or newer)
+- npm or yarn
+- [MongoDB](https://www.mongodb.com/)
+- Optional: Git LFS (for handling large models)
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/your-username/whisper-tts-assistant.git
+cd whisper-tts-assistant
+```
+
+### Install Dependencies
+
+```bash
+npm install
+# or
+yarn install
+```
+
+### Set Up Environment Variables
+
+Create a `.env.local` file:
+
+```env
+MONGODB_URI=mongodb://localhost:27017/your-db
+WHISPER_MODEL_PATH=public/whisper.cpp
+TTS_MODEL_PATH=public/tts-model
+```
+
+### Run the Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🗃️ Project Structure
 
-## Learn More
+```
+public/
+├─ whisper.cpp/        # Whisper inference engine
+├─ tts-model/          # TTS model files
+├─ emsdk/              # WebAssembly support (if used)
+├─ ggml-model.bin      # Optional: large model binary
+src/
+├─ app/api/chat/       # API route for chat
+lib/
+├─ mongo.ts            # MongoDB connection
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ⚠️ Notes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Large model files (`.bin`) are not tracked by Git. Use Git LFS or download manually.
+- Customize the service worker (`public/sw.js`) if needed.
+- Static assets and icons are placed in `public/`.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📦 Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This app can be deployed on **Vercel**, **Render**, or any Node.js-compatible host.
+
+If deploying to Vercel:
+- Add your `.env.local` to the dashboard
+- Ensure large binaries/models are excluded from Git or uploaded to a CDN
+
+---
+
+## 📄 License
+
+MIT License. See `LICENSE` for details.
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome! For major changes, please open an issue first.
+
+---
+
+## 📬 Contact
+
+For help, questions, or suggestions, open an [issue](https://github.com/your-username/whisper-tts-assistant/issues).
